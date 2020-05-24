@@ -1,0 +1,206 @@
+body{
+    background-image: linear-gradient(to bottom,rgba(248, 242, 242, 0), rgba(6, 241, 163, 0.4)), url(../img/back3.png);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Lato';
+    min-height : 670px;
+}
+
+/* Header styles start */
+.navigation{
+    height: 70px;
+    background-image: linear-gradient(to bottom, #22c0a1, #004c4c);
+    color: white;
+    border-bottom: 2px solid white;
+    
+}
+
+.navigation_logo--name{
+    font-family: 'Courgette';
+    display: block;
+    padding-top :10px ;
+    padding-left: 20px;
+    font-size: 30px;
+}
+.outer_box{
+    width: 80%;
+    margin: auto;
+}
+.navigation_nav ul{
+    float: right;
+}
+.navigation_nav li{
+    float: left;
+    list-style: none;
+    padding: 30px 10px;
+    font-family: Merienda;
+}
+
+.navigation_nav a, .navigation_logo--name{
+    text-decoration: none;
+    color: white;
+}
+.navigation_logo--name:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+.navigation_nav a:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: #22c0a1;
+}
+
+/* Header styles stop */
+
+/* --------------------------------------------------------------------------------------  */
+
+/* Main section styles start */
+
+
+.main{
+    position: relative;
+}
+#main .main_boxes{
+    text-align: center;
+    padding: 30px;
+}
+
+#main .main_boxes .box{
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    width : 23%;
+    opacity: 0.8;
+  
+    text-align: center;
+    color: #22c0a1;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: white
+}
+#main .main_boxes .box hr{
+    width : 100%;
+    margin : 10px;
+    border-top : 2px solid gainsboro;
+    
+}
+#main .main_boxes .box h1{
+   font-size: 20px;
+   margin: 0px;
+    font-family: Merienda;
+}
+#main .main_boxes .box p{
+    font-size: 50px;
+    margin: 0px;
+}
+
+.main_buttons{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.main_buttons button{
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Merienda';
+    width : 250px;
+    margin: 20px;
+    transition: all 0.2s ease;
+}
+.main_buttons button:hover{
+    background-color: transparent;
+    box-shadow: 3px 3px 10px white;
+}
+.main_buttons button:active{
+    transform: translate(0px, 3px);
+}
+
+/* Main section styling over */
+
+/* --------------------------------------------------------------------------------------  */
+
+/* display reports section styling starts here */
+
+#displayReports{
+    display: none;
+}
+#displayReports h1{
+    color: white;
+}
+#displayReports .side-1, #displayReports .side-2{
+    padding: 30px;
+}
+#displayReports h1{
+    font-size: 28px;
+    text-shadow: 2px 2px 5px black;
+}
+
+
+/* display reports section styling over here */
+
+/* --------------------------------------------------------------------------------------  */
+
+/*  Additional styling starts here */
+.coman-modal .modal-dialog{ width:60%; margin: 60px auto; }
+.coman-modal .modal-content{ border-radius: 10px; padding: 25px; }
+
+.coman-modal .form-group{ margin-bottom: 15px; }
+.coman-modal .form-control{ font-size: 14px; color: #333333; font-weight: normal; background-color: #f6f7f9; height: 46px; border: 1px solid #bbbbbb; border-radius: 3px; 
+padding: 6px 12px 6px 18px; }
+
+
+.coman-modal .form-control::placeholder {
+  color: #8E8E8E;
+  opacity: 1;
+}
+
+.coman-modal .btn{
+    width : 200px;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.coman-modal .btn:hover{
+    width : 200px;
+    font-size: 20px;
+    margin: 20px;
+    background-color: #8E8E8E;
+    color: white;
+}
+
+.coman-modal hr{
+  width : 90%;
+  border-top: 1px solid gainsboro;
+}
+
+.table{
+    color: #22c0a1;
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+.table td{
+   
+    border: none !important;
+}
+.table th{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 17px;
+    color: grey;
+}
+
+/*  Additional styling ends here */
+
+/* --------------------------------------------------------------------------------------  */
