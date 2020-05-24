@@ -3,4 +3,257 @@
     <script src="{{constants.base_url}}/js/jquery-2.1.1.js"></script>
     <script src="{{constants.base_url}}/js/bootstrap.min.js"></script>
     <script src="{{constants.base_url}}/js/plugins/dataTables/datatables.min.js"></script>
+<script>
+ $(window).load(function () {
+    $(".loader").fadeOut("slow");
+  
+     $.ajax({
+        url: '/api/v1/state',
+        type: 'GET',
+        success: function (data, status, xhr) {   // success callback function
+       document.getElementById('state').innerHTML = '';
+       document.getElementById('state1').innerHTML = '';
+         $('#state').append(`<option value="">Select State</option>`);
+         $('#state1').append(`<option value="">Select State</option>`);
+      data.data.map(item => {
+         $('#state').append(`<option value="${item.stateID}">${item.name}</option>`);
+        $('#state1').append(`<option value="${item.stateID}">${item.name}</option>`);
 
+      })
+        },
+        error: function (jqXhr, textStatus, errorMessage) { // error callback 
+            alert('Something went wrong'); 
+        }
+    });
+
+
+  });
+
+  $('#state').on('change', function() {
+      var selected = $(this).val();
+      $.ajax({
+        url: `/api/v1/district/${selected}`,
+        type: 'GET',
+        success: function (data, status, xhr) {   // success callback function
+       document.getElementById('district').innerHTML = '';
+       $('#district').append(`<option value="">Select District</option>`);
+      data.data.map(item => {
+         $('#district').append(`<option value="${item.districtID}">${item.name}</option>`);
+      })
+        },
+        error: function (jqXhr, textStatus, errorMessage) { // error callback 
+             alert('Something went wrong'); 
+        }
+    });
+
+
+  });
+  
+   $('#state1').on('change', function() {
+      var selected = $(this).val();
+      $.ajax({
+        url: `/api/v1/district/${selected}`,
+        type: 'GET',
+        success: function (data, status, xhr) {   // success callback function
+       document.getElementById('district1').innerHTML = '';
+       $('#district1').append(`<option value="">Select District</option>`);
+      data.data.map(item => {
+         $('#district1').append(`<option value="${item.districtID}">${item.name}</option>`);
+      })
+        },
+        error: function (jqXhr, textStatus, errorMessage) { // error callback 
+            alert('Something went wrong');
+        }
+    });
+
+
+  });
+  
+   $('#district').on('change', function() {
+      var selected = $(this).val();
+      $.ajax({
+        url: `/api/v1/block/${selected}`,
+        type: 'GET',
+        success: function (data, status, xhr) {   // success callback function
+       document.getElementById('block').innerHTML = '';
+              $('#block').append(`<option value="">Select Block</option>`);
+      data.data.map(item => {
+         $('#block').append(`<option value="${item.blockID}">${item.name}</option>`);
+      })
+        },
+        error: function (jqXhr, textStatus, errorMessage) { // error callback 
+            alert('Something went wrong');
+        }
+    });
+
+
+  });
+  
+   $('#district1').on('change', function() {
+      var selected = $(this).val();
+      $.ajax({
+        url: `/api/v1/block/${selected}`,
+        type: 'GET',
+        success: function (data, status, xhr) {   // success callback function
+       document.getElementById('block1').innerHTML = '';
+              $('#block1').append(`<option value="">Select Block</option>`);
+      data.data.map(item => {
+         $('#block1').append(`<option value="${item.blockID}">${item.name}</option>`);
+      })
+        },
+        error: function (jqXhr, textStatus, errorMessage) { // error callback 
+             alert('Something went wrong');
+        }
+    });
+
+
+  });
+  
+   $('#block').on('change', function() {
+      var selected = $(this).val();
+      $.ajax({
+        url: `/api/v1/village/${selected}`,
+        type: 'GET',
+        success: function (data, status, xhr) {   // success callback function
+       document.getElementById('village').innerHTML = '';
+    $('#village').append(`<option value="">Select Village</option>`);
+
+      data.data.map(item => {
+         $('#village').append(`<option value="${item.villageID}">${item.name}</option>`);
+      })
+        },
+        error: function (jqXhr, textStatus, errorMessage) { // error callback 
+            alert('Something went wrong');
+        }
+    });
+
+
+  });
+  
+
+   $('#block1').on('change', function() {
+      var selected = $(this).val();
+      $.ajax({
+        url: `/api/v1/village/${selected}`,
+        type: 'GET',
+        success: function (data, status, xhr) {   // success callback function
+       document.getElementById('village1').innerHTML = '';
+    $('#village1').append(`<option value="">Select Village</option>`);
+
+      data.data.map(item => {
+         $('#village1').append(`<option value="${item.villageID}">${item.name}</option>`);
+      })
+        },
+        error: function (jqXhr, textStatus, errorMessage) { // error callback 
+            alert('Something went wrong');
+        }
+    });
+
+
+  });
+  
+   $('#village').on('change', function() {
+      var selected = $(this).val();
+      $.ajax({
+        url: `/api/v1/house/${selected}`,
+        type: 'GET',
+        success: function (data, status, xhr) {   // success callback function
+       document.getElementById('house').innerHTML = '';
+           $('#house').append(`<option value="">Select House</option>`);
+      data.data.map(item => {
+         $('#house').append(`<option value="${item.houseID}">${item.houseNumber}</option>`);
+      })
+        },
+        error: function (jqXhr, textStatus, errorMessage) { // error callback 
+            alert('Something went wrong');
+        }
+    });
+
+
+  });
+  
+   $('#village1').on('change', function() {
+      var selected = $(this).val();
+      $.ajax({
+        url: `/api/v1/house/${selected}`,
+        type: 'GET',
+        success: function (data, status, xhr) {   // success callback function
+       document.getElementById('house').innerHTML = '';
+           $('#house').append(`<option value="">Select House</option>`);
+      data.data.map(item => {
+         $('#house').append(`<option value="${item.houseID}">${item.houseNumber}</option>`);
+      })
+        },
+        error: function (jqXhr, textStatus, errorMessage) { // error callback 
+            alert('Something went wrong');
+        }
+    });
+
+
+  });
+  
+function addHouse(){
+    const villageId = $('#village').val();
+   $.ajax({
+      url: `api/v1/house/${villageId}`,
+      type: 'POST',
+      data: {
+        'houseNumber': $('#houseNumber').val(),
+        'headName': $('#headName').val(),
+        'state': $('#state').val(),
+        'district': $('#district').val(),
+        'block': $('#block').val(),
+      },
+      success: function (data, status, xhr) {   // success callback function
+        document.getElementById('success-alert').style.display = 'block';        
+        $('#add-house-modal').modal('toggle');
+        $('#success-alert').html(data.message);
+        $("#success-alert").fadeTo(2000, 50000).slideUp(500, function () {
+          $("#success-alert").slideUp(500);
+        }) 
+      },
+      error: function (jqXhr, textStatus, errorMessage) { // error callback 
+        document.getElementById('danger-alert').style.display = 'block';
+      $('#danger-alert').html(errorMessage);
+        $("#danger-alert").fadeTo(2000, 50000).slideUp(500, function () {
+          $("#danger-alert").slideUp(500);
+        });
+        //alert(jqXhr.responseJSON.message);
+      }
+    });
+}
+
+function addMember(){
+    const houseId = $('#house').val();
+   $.ajax({
+      url: `api/v1/member/${houseId}`,
+      type: 'POST',
+      data: {
+        'name': $('#name').val(),
+        'age': $('#age').val(),
+        'salary': $('#salary').val(),
+        'gender': $('#gender').val(),
+        'state': $('#state1').val(),
+        'district': $('#district1').val(),
+        'block': $('#block1').val(),
+        'village': $('#village1').val()
+      },
+      success: function (data, status, xhr) {   // success callback function
+        document.getElementById('success-alert').style.display = 'block';        
+        $('#add-member-modal').modal('toggle');
+        $('#success-alert').html(data.message);
+        $("#success-alert").fadeTo(2000, 50000).slideUp(500, function () {
+          $("#success-alert").slideUp(500);
+        }) 
+      },
+      error: function (jqXhr, textStatus, errorMessage) { // error callback 
+        document.getElementById('danger-alert').style.display = 'block';
+      $('#danger-alert').html(errorMessage);
+        $("#danger-alert").fadeTo(2000, 50000).slideUp(500, function () {
+          $("#danger-alert").slideUp(500);
+        });
+        //alert(jqXhr.responseJSON.message);
+      }
+    });
+}
+</script>

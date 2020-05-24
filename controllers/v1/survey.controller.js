@@ -89,13 +89,10 @@ exports.statewiseGenderAverageSalary = async (req, res) => {
 
 exports.getState = async (req, res) => {
     try {
-        let sql = "SELECT name FROM state";
+        let sql = "SELECT * FROM state";
         const result = await query(sql);
-        let stateArray = [];
-        result.map(item => {
-            stateArray.push(item.name)
-        })
-        return sendResponse(res, 200, 'State displayed successfully', stateArray)
+        
+        return sendResponse(res, 200, 'State displayed successfully', result)
 
     } catch (err) {
         console.log("Error Occurred", err);
@@ -104,13 +101,10 @@ exports.getState = async (req, res) => {
 }
 exports.getDistrict = async (req, res) => {
     try {
-        let sql = `SELECT name FROM district WHERE stateID = '${req.params.stateId}'`;
+        let sql = `SELECT * FROM district WHERE stateID = '${req.params.stateId}'`;
         const result = await query(sql);
-        let districtArray = [];
-        result.map(item => {
-            districtArray.push(item.name)
-        })
-        return sendResponse(res, 200, 'District displayed successfully', districtArray)
+       
+        return sendResponse(res, 200, 'District displayed successfully', result)
 
     } catch (err) {
         console.log("Error Occurred", err);
@@ -119,13 +113,9 @@ exports.getDistrict = async (req, res) => {
 }
 exports.getBlock = async (req, res) => {
     try {
-        let sql = `SELECT name FROM block WHERE districtID = '${req.params.districtId}'`;
+        let sql = `SELECT * FROM block WHERE districtID = '${req.params.districtId}'`;
         const result = await query(sql);
-        let blockArray = [];
-        result.map(item => {
-            blockArray.push(item.name)
-        })
-        return sendResponse(res, 200, 'Blocks displayed successfully', blockArray)
+        return sendResponse(res, 200, 'Blocks displayed successfully', result)
 
     } catch (err) {
         console.log("Error Occurred", err);
@@ -134,13 +124,9 @@ exports.getBlock = async (req, res) => {
 }
 exports.getVillage = async (req, res) => {
     try {
-        let sql = `SELECT name FROM village WHERE blockID = '${req.params.blockId}'`;
+        let sql = `SELECT * FROM village WHERE blockID = '${req.params.blockId}'`;
         const result = await query(sql);
-        let villageArray = [];
-        result.map(item => {
-            villageArray.push(item.name)
-        })
-        return sendResponse(res, 200, 'Villages displayed successfully', villageArray)
+        return sendResponse(res, 200, 'Villages displayed successfully', result)
 
     } catch (err) {
         console.log("Error Occurred", err);
@@ -149,13 +135,9 @@ exports.getVillage = async (req, res) => {
 }
 exports.getHouse = async (req, res) => {
     try {
-        let sql = `SELECT houseNumber FROM house WHERE villageID = '${req.params.villageId}'`;
+        let sql = `SELECT * FROM house WHERE villageID = '${req.params.villageId}'`;
         const result = await query(sql);
-        let houseArray = [];
-        result.map(item => {
-            houseArray.push(item.houseNumber)
-        })
-        return sendResponse(res, 200, 'House displayed successfully', houseArray)
+        return sendResponse(res, 200, 'House displayed successfully', result)
 
     } catch (err) {
         console.log("Error Occurred", err);

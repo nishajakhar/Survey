@@ -1,6 +1,12 @@
 <title>Welcome To Survey</title>
 {{> style}}
 
+   <div class="alert alert-success" id="success-alert">
+  
+  </div>
+   <div class="alert alert-danger" id="danger-alert">
+ 
+  </div>
 
     <header class="navigation">
         <div class="outer_box">
@@ -111,11 +117,11 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 side-1">
                         <div class=" text-center">
 
-                            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <input type="text" class="form-control" placeholder="House Number">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+                                <input type="text" class="form-control" placeholder="House Number" id='houseNumber'>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <input type="text" class="form-control" placeholder="House Head Name">
+                                <input type="text" class="form-control" placeholder="House Head Name" id="headName">
                             </div>
                         </div>
                     </div>
@@ -123,14 +129,14 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 side-1">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                            <select class="form-group form-control">
+                            <select class="form-group form-control" id="state">
                                 <option>Select State</option>
                             </select>
 
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                            <select class="form-group form-control">
+                            <select class="form-group form-control" id="district">
                                 <option>Select District</option>
                             </select>
 
@@ -138,7 +144,7 @@
 
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                            <select class="form-group form-control">
+                            <select class="form-group form-control" id="block">
                                 <option>Select Block</option>
                             </select>
 
@@ -146,7 +152,7 @@
 
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                            <select class="form-group form-control">
+                            <select class="form-group form-control" id="village">
                                 <option>Select Village</option>
                             </select>
 
@@ -155,7 +161,7 @@
                     </div>
 
                     <div class="clearfix text-center">
-                        <button type="submit" class="btn">Submit</button> </div>
+                        <button type="submit" class="btn" onclick="addHouse()">Submit</button> </div>
                 </div>
 
             </div>
@@ -173,23 +179,23 @@
                         <div class=" text-center">
 
                             <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <input type="text" class="form-control" placeholder="Member Name">
+                                <input type="text" class="form-control" placeholder="Member Name" id='name'>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <input type="number" min=1 class="form-control" placeholder="Salary">
+                                <input type="number" min=1 class="form-control" placeholder="Salary" id='salary'>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
                                     style="padding:0px;padding-right:20px;">
-                                    <input type="number" min=1 max=100 class="form-control" placeholder="Age">
+                                    <input type="number" min=1 max=100 class="form-control" placeholder="Age" id='age'>
                                 </div>
 
 
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding:0px">
-                                    <select class="form-group form-control">
+                                    <select class="form-group form-control" id='gender'>
                                         <option>Select Gender</option>
-                                        <option>Male</option>
-                                        <option>Female</option>
+                                        <option value='0'>Male</option>
+                                        <option value='1'>Female</option>
                                     </select>
                                 </div>
                             </div>
@@ -197,14 +203,14 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                            <select class="form-group form-control">
+                            <select class="form-group form-control" id="state1">
                                 <option>Select State</option>
                             </select>
 
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                            <select class="form-group form-control">
+                            <select class="form-group form-control" id="district1">
                                 <option>Select District</option>
                             </select>
 
@@ -212,7 +218,7 @@
 
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                            <select class="form-group form-control">
+                            <select class="form-group form-control" id='block1'>
                                 <option>Select Block</option>
                             </select>
 
@@ -220,14 +226,14 @@
 
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                            <select class="form-group form-control">
+                            <select class="form-group form-control" id='village1'>
                                 <option>Select Village</option>
                             </select>
 
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                            <select class="form-group form-control">
+                            <select class="form-group form-control" id='house'>
                                 <option>Select House Number</option>
                             </select>
 
@@ -236,7 +242,7 @@
                     </div>
 
                     <div class="clearfix text-center">
-                        <button type="submit" class="btn">Submit</button> </div>
+                        <button type="submit" class="btn" onclick='addMember()'>Submit</button> </div>
                 </div>
 
             </div>
@@ -246,8 +252,4 @@
 
 <!-- Mainly scripts -->
 {{> script}}
-<script>
-  $(window).load(function () {
-    $(".loader").fadeOut("slow");
-  });
-</script>
+

@@ -68,3 +68,5 @@ document.querySelector('.navigation_nav--home').addEventListener('click', functi
     document.querySelector('#displayReports').style.display = 'none';
     document.querySelector('#main').style.display = 'block';
 });
+
+
